@@ -1,4 +1,27 @@
-<!--Create images steps using template -->
-<div class="imageWrapper--" ng-if="" ng-class="imageStates ? 'fadeHide' : 'fadeShow'" ng-click="">
-	<img src="/images/{{}}.png" alt="{{}}" />
+<div class="main-frame">
+	<div ng-repeat="image in images">
+		<div class="desktopFrame imageTranisiton-{{image.transition}}" ng-if="image.show" ng-click="standardStep($index)" ng-class="">
+			<img src="/images/{{image.name}}.png" alt="{{image.name}}" />
+		</div>
+	</div>
 </div>
+
+<!-- ToDo
+	Scope css with new object imageTranisiton-{{image.transition}}
+
+	if imageTranisiton-{{image.transition}} is fade
+	imageTranisiton-{{image.transition}}
+		imageTranisiton-{{image.transition}}.ng-enter,
+		imageTranisiton-{{image.transition}}.ng-leave
+			transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s
+
+
+		.imageTranisiton-{{image.transition}}.ng-enter,
+		.imageTranisiton-{{image.transition}}.ng-leave.ng-leave-active
+			opacity:0
+
+
+		.imageTranisiton-{{image.transition}}.ng-leave,
+		imageTranisiton-{{image.transition}}.ng-enter.ng-enter-active
+			opacity:1
+ -->
